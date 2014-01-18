@@ -1,0 +1,33 @@
+{
+	"user"		 : 0,
+	"comments" : [
+		{
+			"id": 0,
+			"author": "A",
+			"date": "01/01/01",
+			"score": "100",
+			"text": "GREAT JOB BUD!"
+		},
+		{
+			"id": 0,
+			"author": "B",
+			"date": "01/01/01",
+			"score": "100",
+			"text": "GREAT JOB BUD!"
+		},
+		{
+			"id": 1,
+			"author": "Dan",
+			"date": "01/01/01",
+			"score": "100",
+			"text": "GREAT JOB BUD!"
+		},
+		{
+			"id": 0,
+			"author": "C",
+			"date": "01/01/01",
+			"score": "100",
+			"text": "GREAT JOB BUD!"
+		}
+	]
+}
