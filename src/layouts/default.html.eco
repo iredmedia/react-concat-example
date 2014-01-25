@@ -11,7 +11,7 @@
 <body>
     <%- @content %>
 
-    <div id="example"></div>
+    <div id="app"></div>
     <%- @getBlock('scripts').toHTML(); %>
     <script src="scripts/entry.js" async></script>
 </body>

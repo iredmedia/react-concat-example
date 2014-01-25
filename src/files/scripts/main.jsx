@@ -4,5 +4,5 @@ console.log('test');
 
 React.renderComponent(
   <Application user={0} />,
-  document.getElementById('example')
+  document.getElementById('app')
 );
