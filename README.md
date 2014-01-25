@@ -1,7 +1,10 @@
-# Peer Review [DocPad](http://docpad.org) Project
+# Utilizing [DocPad](http://docpad.org) with [React](http://facebook.github.io/react/)
 
 ## Overview
-This application is meant to serve as a prototype for React, Docpad, and Prototyping in general.
+This application is meant to serve as a prototype for React and Docpad.
 
-## License
-Copyright &copy; 2014+ All rights reserved.
+## Features
+- Compiles JSX to JS
+- Concatenates into single file (see Gruntfile.js)
+- Cleans up clutter
+
