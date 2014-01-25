@@ -1,19 +1,15 @@
 module.exports = function(grunt) {
+    var tmp = 'tmp/scripts/';
+
     grunt.initConfig({
-        // bower: {
-        //     target: {
-        //         rjsConfig: 'config.js'
-        //     }
-        // },
+        clean: [
+            "tmp",
+            "out/scripts/*.jsx",
+        ],
         concat: {
             dist: {
                 src: [
-                    'out/scripts/AddComment.js',
-                    'out/scripts/Application.js',
-                    'out/scripts/Comment.js',
-                    'out/scripts/CommentList.js',
-                    'out/scripts/PeerList.js',
-                    'out/scripts/main.js'
+                    'tmp/scripts/*.js',
                 ],
                 dest: 'out/scripts/entry.js'
             }
@@ -21,17 +17,17 @@ module.exports = function(grunt) {
         react: {
             files: {
                 expand: true,
-                cwd: 'src/documents/scripts/',
-                src: ['**/*.jsx'],
-                dest: 'out/scripts',
+                cwd: 'src/files/scripts/',
+                src: ['*.jsx'],
+                dest: 'tmp/scripts/',
                 ext: '.js'
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-react');
-    // grunt.loadNpmTasks('grunt-bower-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask("default", ["react", "concat"]);
+    grunt.registerTask("default", ["react", "concat", "clean"]);
 };

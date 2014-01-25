@@ -6,7 +6,7 @@ docpadConfig = {
   reloadPaths: [],
   regeneratePaths: [],
   regenerateDelay: 100,
-  ignorePaths: ['src/documents/scripts/main.jsx'],
+  ignorePaths: [],
   port: null,
   maxAge: 86400000,
   serverExpress: null,

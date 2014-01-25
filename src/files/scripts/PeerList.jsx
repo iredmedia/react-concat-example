@@ -5,10 +5,12 @@ var PeerList = React.createClass({
   getInitialState: function () {},
 
   render: function () {
+    var i = 0;
+
     // Return another comment
     var createComment = function(commentData) {
       return (
-        <AddComment peer={commentData}></AddComment>
+        <AddComment key={i++} peer={commentData}></AddComment>
       );
     };
 

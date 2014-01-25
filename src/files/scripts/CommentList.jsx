@@ -3,11 +3,12 @@
 // Create a list of comments
 var CommentList = React.createClass({
   render: function() {
+    var i = 0;
     // Return another comment
     var createComment = function(commentData) {
       return (
         <li>
-          <Comment comment={commentData}></Comment>
+          <Comment key={i++} comment={commentData}></Comment>
         </li>
       );
     };
