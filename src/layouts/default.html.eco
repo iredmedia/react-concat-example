@@ -12,6 +12,7 @@
     <%- @content %>
 
     <div id="app"></div>
+
     <%- @getBlock('scripts').toHTML(); %>
     <script src="scripts/entry.js" async></script>
 </body>

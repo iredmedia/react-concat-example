@@ -24,7 +24,7 @@ var Application = React.createClass({
     return filteredResults;
   },
 
-  getResultsForUser: function () {
+  getInitialData: function () {
     $.ajax({
       url: 'project.json',
       data: {
@@ -44,7 +44,7 @@ var Application = React.createClass({
   },
 
   componentWillMount: function() {
-    this.getResultsForUser();
+    this.getInitialData();
   },
 
   render: function() {
