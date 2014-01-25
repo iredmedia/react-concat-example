@@ -29,39 +29,36 @@ var Application = React.createClass({
         posts: JSON.parse(data).posts
       });
     }.bind(this));
+
+    this.request(this.state.article, function (data) {
+      this.setState({
+        html: data
+      });
+    }.bind(this));
   },
 
   render: function() {
     return (
       <div className="component application">
-        <ArticleView html={this.state.html} />
+        <h2>Navigation</h2>
         <NavigationList posts={this.state.posts} />
-      </div>
-    );
-  }
-});
-/** @jsx React.DOM */
-// Setup HTML dangerous renderer
-var RenderHTML = React.createClass({
-  render: function() {
-    return (
-      <div
-        className="component render-html"
-        dangerouslySetInnerHTML={{
-          __html: this.props.html
-        }}>
+
+        <h2>Article</h2>
+        <ArticleView html={this.state.html} />
       </div>
     );
   }
 });
 
 /** @jsx React.DOM */
-// Article View
+
+/* Render an article.
+ * @param array this.props.html
+ */
 var ArticleView = React.createClass({
   render: function() {
     return (
       <div className="component article-view">
-        <h1>Content</h1>
         <RenderHTML className="content" html={this.props.html} />
       </div>
     );
@@ -69,7 +66,10 @@ var ArticleView = React.createClass({
 });
 
 /** @jsx React.DOM */
-// Navigation View
+
+/* Get a collection of posts.
+ * @param array this.props.posts
+ */
 var NavigationList = React.createClass({
   render: function() {
     function getItem(record) {
@@ -86,6 +86,23 @@ var NavigationList = React.createClass({
       <ul className="component navigation-view">
         {this.props.posts.map(getItem)}
       </ul>
+    );
+  }
+});
+
+/** @jsx React.DOM */
+/* Setup HTML renderer
+ * @param string this.props.html
+ */
+var RenderHTML = React.createClass({
+  render: function() {
+    return (
+      <div
+        className="component render-html"
+        dangerouslySetInnerHTML={{
+          __html: this.props.html
+        }}>
+      </div>
     );
   }
 });

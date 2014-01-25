@@ -1,5 +1,8 @@
 <div>
-    <h1><%- @document.title %></h1>
-
-    <%- @content %>
+    <h3>
+    	<%- @document.title %>
+    </h3>
+    <div class="post">
+	    <%- @content %>
+	  </div>
 </div>
