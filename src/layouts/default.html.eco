@@ -6,6 +6,8 @@
     <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
     <script src="http://fb.me/react-with-addons-0.8.0.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="http://backbonejs.org/backbone-min.js"></script>
 </head>
 
 <body>

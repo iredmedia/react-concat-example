@@ -1,0 +1,11 @@
+{
+	"posts": [
+	  {
+		<% for post in @getCollection("posts").toJSON(): %>
+				"name": "<%- post.name.charAt(0).toUpperCase() + post.name.slice(1).match(/(.*)\.[^.]+$/)[1] %>",
+				"url": "<%- post.url.slice(1) %>"
+			}, {
+		<% end %>
+		}
+	]
+}

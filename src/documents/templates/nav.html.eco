@@ -1,0 +1,9 @@
+<ul>
+	<% for post in @getCollection("posts").toJSON(): %>
+		<li>
+	    <a href="#!posts/<%- post.url.split('/').pop().replace(/\..*$/, '') %>">
+	    	<%- post.title %>
+	    </a>
+		</li>
+	<% end %>
+</ul>

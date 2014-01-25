@@ -160,7 +160,10 @@ docpadConfig = {
 
     # Collections
     # A hash of functions that create collections
-    collections: {}  # default
+    collections: {
+        posts: ->
+                @getCollection("html").findAllLive({ relativeOutDirPath:'posts' })
+    }
 
     # Regenerate Every
     # Performs a regenerate every x milliseconds, useful for always having the latest data

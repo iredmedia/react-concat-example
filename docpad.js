@@ -34,7 +34,13 @@ docpadConfig = {
   prompts: false,
   helperUrl: 'https://docpad.org/helper/',
   safeMode: false,
-  collections: {},
+  collections: {
+    posts: function() {
+      return this.getCollection("html").findAllLive({
+        relativeOutDirPath: 'posts'
+      });
+    }
+  },
   regenerateEvery: false,
   templateData: {
     site: {
