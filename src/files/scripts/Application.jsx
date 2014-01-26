@@ -4,7 +4,7 @@
 var Application = React.createClass({
   getInitialState: function() {
     return {
-      article: 'posts/test.html',
+      slug: '#!posts/home.html',
       html: '',
       posts: []
     };
@@ -31,30 +31,37 @@ var Application = React.createClass({
     }.bind(this));
   },
 
-  navigate: function (event) {
-    var article = event.target.href.split('#!')[1];
-
-    this.getArticle(article);
+  getSlug: function (hash) {
+    return hash.split('#!')[0] || hash.split('#!')[1];
   },
 
   getArticle: function (article) {
-    this.request(article, function (data) {
+    var url = this.getSlug(article);
+
+    this.request(url, function (data) {
       this.setState({
+        slug: url,
         html: data
       });
     }.bind(this));
   },
 
+  onHashChange: function(argument) {
+    this.getArticle(location.hash);
+  },
+
   componentWillMount: function () {
     this.getPosts();
-    this.getArticle(this.state.article);
+    this.getArticle(this.state.slug);
+
+    window.addEventListener("hashchange", this.onHashChange, false);
   },
 
   render: function() {
     return (
       <div className="component application">
         <h2>Navigation</h2>
-        <NavigationList onNavigate={this.navigate} posts={this.state.posts} />
+        <NavigationList posts={this.state.posts} />
 
         <h2>Article</h2>
         <ArticleView html={this.state.html} />
