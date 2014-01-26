@@ -162,7 +162,7 @@ docpadConfig = {
     # A hash of functions that create collections
     collections: {
         posts: ->
-                @getCollection("html").findAllLive({ relativeOutDirPath:'posts' })
+                @getCollection("html").findAllLive({ relativeOutDirPath:'posts' }).setComparator((a, b) -> b.get('date').getTime() - a.get('date').getTime())
     }
 
     # Regenerate Every

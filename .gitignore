@@ -2,3 +2,4 @@
 .docpad.db
 out
 node_modules
+./docpad.coffee

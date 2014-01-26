@@ -12,7 +12,7 @@ var NavigationList = React.createClass({
 
       return (
         <li key={slug}>
-          <a onClick={this.props.onNavigate} href={slug}>{record.name}</a>
+          <a href={slug}>{record.name}</a>
         </li>
       )
     }

@@ -28,11 +28,10 @@ var Application = React.createClass({
       this.setState({
         posts: JSON.parse(data).posts
       });
-    }.bind(this));
-  },
 
-  getSlug: function (hash) {
-    return hash.split('#!')[0] || hash.split('#!')[1];
+      // Get initial page/post
+      this.getArticle(this.state.posts[0].url);
+    }.bind(this));
   },
 
   getArticle: function (article) {
@@ -46,13 +45,16 @@ var Application = React.createClass({
     }.bind(this));
   },
 
+  getSlug: function (hash) {
+    return hash.split('#!')[0] || hash.split('#!')[1];
+  },
+
   onHashChange: function(argument) {
     this.getArticle(location.hash);
   },
 
   componentWillMount: function () {
     this.getPosts();
-    this.getArticle(this.state.slug);
 
     window.addEventListener("hashchange", this.onHashChange, false);
   },
