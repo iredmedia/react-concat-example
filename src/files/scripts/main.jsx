@@ -23,25 +23,38 @@ var Application = React.createClass({
     });
   },
 
-  componentWillMount: function () {
+  getPosts: function () {
     this.request('project.json', function (data) {
       this.setState({
         posts: JSON.parse(data).posts
       });
     }.bind(this));
+  },
 
-    this.request(this.state.article, function (data) {
+  navigate: function (event) {
+    var article = event.target.href.split('#!')[1];
+
+    this.getArticle(article);
+  },
+
+  getArticle: function (article) {
+    this.request(article, function (data) {
       this.setState({
         html: data
       });
     }.bind(this));
   },
 
+  componentWillMount: function () {
+    this.getPosts();
+    this.getArticle(this.state.article);
+  },
+
   render: function() {
     return (
       <div className="component application">
         <h2>Navigation</h2>
-        <NavigationList posts={this.state.posts} />
+        <NavigationList onNavigate={this.navigate} posts={this.state.posts} />
 
         <h2>Article</h2>
         <ArticleView html={this.state.html} />
@@ -75,16 +88,18 @@ var NavigationList = React.createClass({
     function getItem(record) {
       if (record.name === undefined) return;
 
+      var slug = "#!" + record.url;
+
       return (
-        <li>
-          <a href={"#!" + record.url}>{record.name}</a>
+        <li key={slug}>
+          <a onClick={this.props.onNavigate} href={slug}>{record.name}</a>
         </li>
       )
     }
 
     return (
       <ul className="component navigation-view">
-        {this.props.posts.map(getItem)}
+        {this.props.posts.map(getItem, this)}
       </ul>
     );
   }
