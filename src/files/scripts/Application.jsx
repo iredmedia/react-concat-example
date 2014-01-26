@@ -4,7 +4,7 @@
 var Application = React.createClass({
   getInitialState: function() {
     return {
-      slug: '#!posts/home.html',
+      slug: location.hash,
       html: '',
       posts: []
     };
@@ -60,10 +60,7 @@ var Application = React.createClass({
   render: function() {
     return (
       <div className="component application">
-        <h2>Navigation</h2>
         <NavigationList posts={this.state.posts} />
-
-        <h2>Article</h2>
         <ArticleView html={this.state.html} />
       </div>
     );
