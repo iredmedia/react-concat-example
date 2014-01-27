@@ -1,4 +1,4 @@
-# Utilizing [DocPad](http://docpad.org) with [React](http://facebook.github.io/react/)
+# A dynamic blogging/paging system [DocPad](http://docpad.org) with [React](http://facebook.github.io/react/)
 
 ## Overview
 This application is meant to serve as a prototype for React and Docpad.
